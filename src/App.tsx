@@ -1,25 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter } from 'react-router-dom';
+
+import Routes from "./routes/Routes";
+import Layout from "./Layout";
+import AuthContextProvider from './state/auth-context';
+import ModalContextProvider from './state/modal-context';
+import AlertContextProvider from './state/alert-context';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthContextProvider>
+      <ModalContextProvider>
+        <AlertContextProvider>
+          <BrowserRouter>
+            <Layout>
+              <Routes />
+            </Layout>
+          </BrowserRouter>
+        </AlertContextProvider>
+      </ModalContextProvider>
+    </AuthContextProvider>
   );
 }
 
