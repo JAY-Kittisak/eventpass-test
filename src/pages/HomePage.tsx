@@ -18,8 +18,10 @@ const HomePage: React.FC<Props> = () => {
             <HomePageStyled>
                     {isToken ? (
                         <div className="typography">
-                            <h2>Test From</h2>
-                            <h1>EventPass</h1>
+                            <h1>Test From EventPass</h1>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo eos dolorum quis sit repellat, numquam nemo tenetur natus iure cupiditate, temporibus mollitia adipisci iusto aperiam ab reprehenderit voluptates
+                            </p>
                             <ButtonModal />
                         </div>
                     ) : (
@@ -41,8 +43,6 @@ const HomePage: React.FC<Props> = () => {
 }
 
 const HomePageStyled = styled.header`
-    width: 100%;
-
     .typography {
         padding: 0 2rem;
         position: absolute;
@@ -50,13 +50,14 @@ const HomePageStyled = styled.header`
         left: 50%;
         transform: translate(-50%, -50%);
         text-align: center;
-        width: 80%;
+        width: 600px;
+
+        @media screen and (max-width: 900px) {
+            width: 80%;
+        }
 
         h1 {
-            font-size: 5rem;
-        }
-        h2 {
-            font-size: 4rem;
+            font-size: 2.5rem;
         }
     }
 `;
